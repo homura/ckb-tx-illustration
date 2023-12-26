@@ -9,7 +9,20 @@ bun install
 To run:
 
 ```bash
-bun run src/index.ts
+cd examples
+bun run dev
 ```
 
-This project was created using `bun init` in bun v1.0.18. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+## Quick Start
+
+```ts
+import { createTransactionIllustration } from "ckb-tx-illustration";
+
+createTransactionIllustration({
+  data: {
+    txHash: "0x...",
+    inputs: [{ capacity, lock, type, data }],
+    outputs: [{ capacity, lock, type, data }],
+  },
+});
+```
