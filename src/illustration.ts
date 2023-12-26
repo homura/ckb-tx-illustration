@@ -60,12 +60,13 @@ export function createTransactionIllustration(
 
   const inputsHierarchy = hierarchy<Node>({
     kind: "tx",
-    txHash: data.txHash,
+    // empty here because the outputs also render as a tree, and the txHash should be rendered only once
+    txHash: "",
     children: data.inputs.map((item) => ({ ...item, kind: "cell" })),
   });
   const outputsHierarchy = hierarchy<Node>({
     kind: "tx",
-    txHash: "", //empty here because the outputs also render as a tree, and the root node transaction is rendered in the inputs tree
+    txHash: data.txHash,
     children: data.inputs.map((item) => ({ ...item, kind: "cell" })),
   });
 
